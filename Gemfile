@@ -57,3 +57,6 @@ gem 'haml-rails', '~> 1.0'
 
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+
+gem 'formtastic'
+gem 'formtastic-bootstrap'

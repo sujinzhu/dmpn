@@ -71,6 +71,10 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    formtastic (3.1.5)
+      actionpack (>= 3.2.13)
+    formtastic-bootstrap (3.1.1)
+      formtastic (>= 3.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -207,6 +211,8 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  formtastic
+  formtastic-bootstrap
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails
