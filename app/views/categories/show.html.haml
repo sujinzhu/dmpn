@@ -1,15 +1,24 @@
-%p#notice= notice
+.page-header
+  .btn-group.pull-right
+    = link_to_edit edit_category_path(@category)
+    = link_to_index categories_path
+  %h1 Category
 
-%p
-  %b Name:
-  = @category.name
-%p
-  %b Place holder:
-  = @category.place_holder
-%p
-  %b Is view:
-  = @category.is_view
-
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+%ul.list-group
+  %li.list-group-item
+    - unless @category.is_root?
+      =render :partial => "ancestor", :locals => { :category => @category.parent }
+    - else
+      %h4.list-group-item-heading Parent:
+      %ol.breadcrumb
+        %li.active All
+      -# %p.list-group-item-text= @category.name
+  %li.list-group-item
+    %h4.list-group-item-heading Name:
+    %p.list-group-item-text= @category.name
+  %li.list-group-item
+    %h4.list-group-item-heading Place holder:
+    %p.list-group-item-text= @category.place_holder
+  %li.list-group-item
+    %h4.list-group-item-heading Is view:
+    %p.list-group-item-text= @category.is_view
