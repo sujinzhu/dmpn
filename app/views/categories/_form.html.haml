@@ -1,4 +1,7 @@
-#category_list{data: {source: "#{list_categories_path}"}}
+- if @category.persisted? & !@category.is_root?
+  #category_list{data: {source: "#{select_category_path(@category.parent)}"}}
+- else
+  #category_list{data: {source: "#{list_categories_path}"}}
 
 = semantic_form_for @category do |f|
   = f.inputs do
@@ -13,10 +16,18 @@
 :coffee
   $('#category_list').load $('#category_list').data('source')
 
+  self_id = parseInt('#{@category.id}')
+
   @fnSelectChildCategory = (category_id, url) ->
-    $('#category_parent_id').val(category_id)
-    $('#category_list').load url
+    fnSelectCategory(category_id, url)
 
   @fnSelectParentCategory = (category_id, url) ->
-    $('#category_parent_id').val(category_id)
-    $('#category_list').load url
+    fnSelectCategory(category_id, url)
+
+  fnSelectCategory = (category_id, url) ->
+    if category_id == self_id
+      # $('#category_parent_id').val null
+      alert 'You should not set parent to self or progeny.'
+    else
+      $('#category_parent_id').val category_id
+      $('#category_list').load url
