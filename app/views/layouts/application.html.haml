@@ -5,7 +5,9 @@
     %title Dmpn
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://cdn.datatables.net/v/bs/dt-1.10.16/b-1.4.2/b-html5-1.4.2/datatables.min.css'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://cdn.datatables.net/v/bs/dt-1.10.16/b-1.4.2/b-html5-1.4.2/datatables.min.js'
   %body
     -# Fixed navbar
     %nav.navbar.navbar-default.navbar-fixed-top

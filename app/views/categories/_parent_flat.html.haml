@@ -1,0 +1,6 @@
+- unless category.is_root?
+  =render :partial => "parent_flat", :locals => { :category => category.parent }
+
+%span
+  &nbsp;/&nbsp;
+  = category.name

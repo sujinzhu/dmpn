@@ -6,10 +6,10 @@
 
 %ul.list-group
   %li.list-group-item
+    %h4.list-group-item-heading Parent:
     - unless @category.is_root?
       =render :partial => "ancestor", :locals => { :category => @category.parent }
     - else
-      %h4.list-group-item-heading Parent:
       %ol.breadcrumb
         %li.active All
       -# %p.list-group-item-text= @category.name
