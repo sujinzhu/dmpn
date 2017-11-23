@@ -1,0 +1,3 @@
+.btn-group{role: "group"}
+  - categories.each do |category|
+    .btn.btn-default{type: "button", onclick: "fnSelectChildCategory(#{category.id}, '#{select_category_path(category)}')"}= category.name

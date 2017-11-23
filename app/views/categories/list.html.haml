@@ -1,0 +1,8 @@
+-# list all roots as children, 'All' as parent
+%h3 Parent:
+%ol.breadcrumb
+  %li.active All
+
+=render :partial => "children", locals: {categories: @categories}
+
+%hr.hr

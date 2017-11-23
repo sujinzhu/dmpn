@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :select, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
@@ -7,9 +7,19 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def list
+    @categories = Category.roots
+    render layout: false
+  end
+
   # GET /categories/1
   # GET /categories/1.json
   def show
+  end
+
+  def select
+    @categories = @category.children
+    render layout: false
   end
 
   # GET /categories/new
@@ -69,6 +79,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name, :place_holder, :is_view)
+      params.require(:category).permit(:name, :place_holder, :is_view, :parent_id)
     end
 end

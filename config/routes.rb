@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :categories
+  resources :categories do
+    collection do
+      get 'list'
+    end
+
+    member do
+      get 'select'
+    end
+  end
   get 'home/index'
 
   root 'home#index'
