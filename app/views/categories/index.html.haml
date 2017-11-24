@@ -8,6 +8,7 @@
     %tr
       %th Parent
       %th Name
+      %th Parent Place Holder
       %th Place holder
       %th Is view
       %th
@@ -23,6 +24,7 @@
           - else
             All
         %td= category.name
+        %td= category.parents_place_holder
         %td= category.place_holder
         %td= category.is_view
         %td= link_to 'Show', category
