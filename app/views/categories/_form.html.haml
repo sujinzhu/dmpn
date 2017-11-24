@@ -1,3 +1,4 @@
+%h4 Parent
 - if @category.persisted? & !@category.is_root?
   #category_list{data: {source: "#{select_category_path(@category.parent)}"}}
 - else
