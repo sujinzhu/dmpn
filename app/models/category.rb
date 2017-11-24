@@ -21,6 +21,10 @@ class Category < ApplicationRecord
     parents_place_holder + place_holder
   end
 
+  def to_s
+    name
+  end
+
   private
   def _get_parent_place_holder(parent)
     @parent_holder.insert(0, parent.place_holder)
