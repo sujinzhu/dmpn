@@ -11,6 +11,7 @@
       %th Parent Place Holder
       %th Place holder
       %th Is view
+      %th Next Number
       %th
       %th
       %th
@@ -27,6 +28,7 @@
         %td= category.parents_place_holder
         %td= category.place_holder
         %td= category.is_view
+        %td= category.next_number
         %td= link_to 'Show', category
         %td= link_to 'Edit', edit_category_path(category)
         %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
