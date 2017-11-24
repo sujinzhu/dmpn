@@ -1,5 +1,5 @@
 - unless category.is_root?
-  =render :partial => "parent", :locals => { :category => category.parent }
+  =render :partial => "categories/parent", :locals => { :category => category.parent }
 
 %li{onclick: "fnSelectParentCategory(#{category.id}, '#{select_category_path(category)}')"}
   = category.name

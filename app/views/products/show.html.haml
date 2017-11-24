@@ -1,15 +1,20 @@
-%p#notice= notice
+.page-header
+  .btn-group.pull-right
+    = link_to_edit edit_product_path(@product)
+    = link_to_index products_path
+    = link_to_new new_product_path
+  %h1 Product
 
-%p
-  %b Category:
-  = @product.category
-%p
-  %b Name:
-  = @product.name
-%p
-  %b Code:
-  = @product.code
-
-= link_to 'Edit', edit_product_path(@product)
-\|
-= link_to 'Back', products_path
+%ul.list-group
+  %li.list-group-item
+    %h4.list-group-item-heading Category:
+    =render :partial => "categories/ancestor", :locals => { :category => @product.category }
+  %li.list-group-item
+    %h4.list-group-item-heading Code:
+    %p.list-group-item-text= @product.code
+  %li.list-group-item
+    %h4.list-group-item-heading Name:
+    %p.list-group-item-text= @product.name
+  %li.list-group-item
+    %h4.list-group-item-heading Batch:
+    %p.list-group-item-text= @product.batch

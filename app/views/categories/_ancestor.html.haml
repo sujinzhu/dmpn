@@ -1,6 +1,6 @@
 %ul.breadcrumb
   %li{onclick: "fnSelectParentCategory(null, '#{list_categories_path}')"} All
   - unless category.is_root?
-    =render :partial => "parent", :locals => { :category => category.parent }
+    =render :partial => "categories/parent", :locals => { :category => category.parent }
 
   %li.active= category.name

@@ -1,9 +1,31 @@
+%h4 Category
+- if @product.persisted?
+  #category_list{data: {source: "#{select_category_path(@product.category)}"}}
+- else
+  #category_list{data: {source: "#{list_categories_path}"}}
+
 = semantic_form_for @product do |f|
   = f.inputs do
-    = f.input :category
+    = f.input :category_id, as: :hidden
     = f.input :code
     = f.input :name
     = f.input :batch
 
   = f.actions do
-    = f.action :submit, :as => :input
+    = f.action :submit, :as => :input, :wrapper_html => { :class => 'btn-default'}
+
+:coffee
+  $('#category_list').load $('#category_list').data('source')
+
+  @fnSelectChildCategory = (category_id, url) ->
+    $('#product_category_id').val category_id
+    fnSelectCategory(category_id, url)
+
+  @fnSelectParentCategory = (category_id, url) ->
+    $('#product_category_id').val category_id
+    fnSelectCategory(category_id, url)
+
+  fnSelectCategory = (category_id, url) ->
+    $.getJSON pathCategoryJSON(category_id), (category) ->
+      $('#product_code').val category.prefix
+    $('#category_list').load url
