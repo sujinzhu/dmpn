@@ -16,4 +16,5 @@
 //= require jquery
 //= require bootstrap-sprockets
 
+//= require url_helper
 //= require_tree .

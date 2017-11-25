@@ -26,6 +26,6 @@
     fnSelectCategory(category_id, url)
 
   fnSelectCategory = (category_id, url) ->
-    $.getJSON pathCategoryJSON(category_id), (category) ->
+    $.getJSON fnUrlForJson("#{categories_path}", category_id), (category) ->
       $('#product_code').val category.prefix
     $('#category_list').load url
