@@ -1,3 +1,8 @@
+:scss
+  #category_list{
+    height: 111px;
+  }
+
 %h4 Category
 - if @product.persisted?
   #category_list{data: {source: "#{select_category_path(@product.category)}"}}
