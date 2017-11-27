@@ -7,7 +7,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'https://cdn.datatables.net/v/bs/dt-1.10.16/b-1.4.2/b-html5-1.4.2/datatables.min.css'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'https://cdn.datatables.net/v/bs/dt-1.10.16/b-1.4.2/b-html5-1.4.2/datatables.min.js'
+    = javascript_include_tag 'https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.16/b-1.4.2/b-html5-1.4.2/datatables.min.js'
+    = javascript_tag do
+      $.extend( $.fn.dataTable.defaults, {
+      "dom": "<'row'<'col-xs-6'B><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>"
+      });
   %body
     -# Fixed navbar
     %nav.navbar.navbar-default.navbar-fixed-top
