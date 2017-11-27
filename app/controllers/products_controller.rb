@@ -17,6 +17,9 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def new_many
+  end
+
   # GET /products/1/edit
   def edit
   end
@@ -34,6 +37,19 @@ class ProductsController < ApplicationController
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def create_many
+    @category = Category.find(params[:category_id])
+    @product_names = params[:names].delete_if {|i, value| value.blank?}.values
+    @batch = params[:batch]
+    @length = params.fetch(:length, 12)
+
+    if (@products = Product.create_many @category, @product_names, @batch, @length)
+      render :index
+    else
+      render :new_many
     end
   end
 

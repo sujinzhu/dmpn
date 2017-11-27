@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :products
+  resources :products do
+    collection do
+      get 'new_many'
+      post 'create_many'
+    end
+  end
+
   resources :categories do
     collection do
       get 'list'

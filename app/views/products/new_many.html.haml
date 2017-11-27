@@ -1,0 +1,51 @@
+:scss
+  #category_list{
+    height: 111px;
+  }
+
+%h4 Category
+#category_list{data: {source: "#{list_categories_path}"}}
+
+%h4 Products
+= form_tag create_many_products_path, {class: 'form-horizontal'} do
+  = hidden_field_tag :category_id
+  .form-group
+    = label_tag :batch, nil, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = text_field_tag :batch, nil, class: 'form-control'
+  .form-group
+    = label_tag 'names[0]', 'Name', class: 'col-sm-2 control-label'
+    .col-sm-5
+      = text_field_tag 'names[0]', nil, class: 'form-control'
+    .col-sm-5
+      = text_field_tag 'names[1]', nil, class: 'form-control'
+  - for i in 1..9 do
+    .form-group
+      .col-sm-offset-2.col-sm-5
+        = text_field_tag "names[#{i*2}]", nil, class: 'form-control'
+      .col-sm-5
+        = text_field_tag "names[#{i*2+1}]", nil, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = submit_tag "Create", {class: 'btn btn-default'}
+
+:coffee
+  $('#category_list').load $('#category_list').data('source')
+  $('form').hide()
+
+  @fnSelectChildCategory = (category_id, url) ->
+    $('#category_id').val category_id
+    fnSelectCategory(category_id, url)
+
+  @fnSelectParentCategory = (category_id, url) ->
+    $('#category_id').val category_id
+    fnSelectCategory(category_id, url)
+
+  fnSelectCategory = (category_id, url) ->
+    $.getJSON fnUrlForJson("#{categories_path}", category_id), (category) ->
+      if category.is_view
+        $('form').hide()
+      else
+        $('form').show()
+        $('#batch').focus()
+    $('#category_list').load url

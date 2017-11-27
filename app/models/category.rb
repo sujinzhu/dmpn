@@ -25,6 +25,12 @@ class Category < ApplicationRecord
     name
   end
 
+  def next_id(leng)
+    _id = (prefix + '%0' + (leng - prefix.length).to_s + 'd') % next_number
+    update(next_number: next_number + 1)
+    _id
+  end
+
   private
   def _get_parent_place_holder(parent)
     @parent_holder.insert(0, parent.place_holder)
