@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   include NameMatches
-  
+
   belongs_to :parent, class_name: "Category", optional: true
   has_many :children, class_name: "Category", foreign_key: "parent_id"
 
@@ -28,7 +28,7 @@ class Category < ApplicationRecord
   end
 
   def next_id(leng)
-    _id = (prefix + '%0' + (leng - prefix.length).to_s + 'd') % next_number
+    _id = (prefix + '%0' + (leng - prefix.length - 2).to_s + 'd01') % next_number
     update(next_number: next_number + 1)
     _id
   end
