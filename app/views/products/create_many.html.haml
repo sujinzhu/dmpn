@@ -1,0 +1,35 @@
+.page-header
+  .pull-right.btn-group
+    = link_to_new new_product_path
+    %a.btn.btn-primary{href: "#{new_many_products_path}"}
+      New many
+  %h1 Products
+
+%table.table.table-striped.table-bordered.table-hover.table-condensed
+  %thead
+    %tr
+      %th Category
+      %th Internal Reference
+      %th Name
+      %th Batch
+      %th
+      %th
+      %th
+
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td=render :partial => "categories/ancestor_flat", :locals => { :category => product.category }
+        %td= product.code
+        %td= product.name
+        %td= product.batch
+        %td= link_to 'Show', product
+        %td= link_to 'Edit', edit_product_path(product)
+        %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+
+:coffee
+  $('table').DataTable
+    buttons: [
+      'csvHtml5',
+      'excelHtml5'
+    ]

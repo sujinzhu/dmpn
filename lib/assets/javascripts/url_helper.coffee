@@ -45,24 +45,24 @@
 # @param String sEditUrl	// url for resource editing
 @fnLinkToEdit = (sEditUrl, bRemote = false) ->
   if bRemote
-    "<a title='#{sEdit}' href=\"#{sEditUrl}\" data-remote=\"true\"
+    "<a title='Edit' href=\"#{sEditUrl}\" data-remote=\"true\"
     class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-edit\"></span>
     </a>"
   else
-    "<a title='#{sEdit}' href=\"#{sEditUrl}\" class=\"btn btn-primary\">
+    "<a title='Edit' href=\"#{sEditUrl}\" class=\"btn btn-primary\">
     <span class=\"glyphicon glyphicon-edit\"></span></a>"
 
 # Helper method for create destroyint link
 # @param String sDestroyUrl	// url for resource destroying
-@fnLinkToDestroy = (sDestroyUrl, bRemote = false, sLabel = "#{sDestroy}") ->
+@fnLinkToDestroy = (sDestroyUrl, bRemote = false, sLabel = "Delete") ->
   if bRemote
-    "<a title='#{sDestroy}' href=\"#{sDestroyUrl}\"
-     data-confirm=\"#{sConfirm}\" data-method=\"delete\"
+    "<a title='#{sLabel}' href=\"#{sDestroyUrl}\"
+     data-confirm=\"Are you sure?\" data-method=\"delete\"
       data-remote=\"true\" class=\"btn btn-danger\">
       <span class=\"glyphicon glyphicon-remove\"></span>
       </a>"
   else
-    "<a title='#{sDestroy}' href=\"#{sDestroyUrl}\" data-confirm=\"#{sConfirm}\"
+    "<a title='#{sLabel}' href=\"#{sDestroyUrl}\" data-confirm=\"Are you sure?\"
      data-method=\"delete\" class=\"btn btn-danger\">
      <span class=\"glyphicon glyphicon-remove\"></span>
      </a>"

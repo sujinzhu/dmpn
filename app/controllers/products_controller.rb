@@ -4,7 +4,17 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json do
+        options = DataTable::Options.new(params)
+        @draw = options.draw
+        @recordsTotal = Product.count
+        query = Product.full_search_query(options.search_string)
+        @recordsFiltered = query.count
+        @products = query.offset(options.start).order(options.sorting_string).limit(options.length)
+      end
+    end
   end
 
   # GET /products/1
@@ -47,7 +57,7 @@ class ProductsController < ApplicationController
     @length = params.fetch(:length, 12)
 
     if (@products = Product.create_many @category, @product_names, @batch, @length)
-      render :index
+      render :create_many
     else
       render :new_many
     end
