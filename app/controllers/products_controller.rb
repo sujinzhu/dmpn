@@ -24,10 +24,11 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    @product = Product.new(batch: Date.today.strftime('%Y%m%d'))
   end
 
   def new_many
+    @batch = Date.today.strftime('%Y%m%d')
   end
 
   # GET /products/1/edit

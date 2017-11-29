@@ -12,7 +12,7 @@
   .form-group
     = label_tag :batch, nil, class: 'col-sm-2 control-label'
     .col-sm-10
-      = text_field_tag :batch, nil, class: 'form-control'
+      = text_field_tag :batch, @batch, class: 'form-control'
   .form-group
     = label_tag 'names[0]', 'Name', class: 'col-sm-2 control-label'
     .col-sm-5
@@ -47,5 +47,5 @@
         $('form').hide()
       else
         $('form').show()
-        $('#batch').focus()
+        $('#names_0').focus()
     $('#category_list').load url
