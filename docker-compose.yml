@@ -1,9 +1,12 @@
-version: '2'
+version: '3'
 services:
+  db:
+    image: postgres
   web:
     build: .
     volumes:
       - .:/myapp
     ports:
       - "3000:80"
-
+    depands_on:
+      - db
