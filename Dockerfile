@@ -21,6 +21,8 @@ WORKDIR /home/app/webapp
 ADD Gemfile /home/app/webapp/Gemfile
 ADD Gemfile.lock /home/app/webapp/Gemfile.lock
 
+RUN gem install bundler
+
 RUN cd /home/app/webapp && bundle install
 
 ADD . /home/app/webapp

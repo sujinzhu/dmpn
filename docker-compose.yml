@@ -8,5 +8,5 @@ services:
       - .:/myapp
     ports:
       - "3000:80"
-    depands_on:
+    depends_on:
       - db

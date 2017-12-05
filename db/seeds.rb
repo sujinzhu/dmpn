@@ -1,3 +1,4 @@
+# coding: utf-8
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -10,19 +11,19 @@ Product.create(category: Category.first, code: 'MD0301100201', name: '1.00 mm en
 Product.create(category: Category.first, code: 'MD0301100301', name: '1.20 mm enamaled cooper wire 1EIWH 200c (漆包线）')
 Product.create(category: Category.first, code: 'MD0609000201', name: '103x103x0.07mm  PE 锁骨袋')
 Product.create(category: Category.first, code: 'MD0609000301', name: '120*115*0.07mm PE锁骨袋')
-Product.create(category: Category.first, code: 'Raw cable sampling cost(Used for 917960415.A1）', name: '"22AWG*4C(white,brown,green, pink) +AL/MY  TS17/0.16 PVC insulation  ID:1.4+/-0.1  OD:4.8+/-0.2mm  PVC 60P black jacket Weather&Ozone and UV resistant(特殊户外PVC),耐寒-30℃~80℃"')
+
 Product.create(category: Category.first, code: 'MD0609000501', name: '250x180x0.04mm PE 锁骨袋')
-Product.create(category: Category.first, code: 'Raw cable sampling cost(Used for 917010032.A1&917010090.A1)', name: '"26AWG*6C（green, brown, white, pink, gray, yellow）+F   ID:1.0+/-0.1  OD:5.0+/-0.2mm  60P PVC black jacket,  Weather&Ozone and UV resistant(特殊户外PVC),耐寒-30℃~80℃"')
-Product.create(category: Category.first, code: 'M400_Sicherheitsblatt-V1', name: '294*400mm 说明书 黑白页  90克双胶纸，两折三页，印黑色字')
+
+
 Product.create(category: Category.first, code: 'MD0606000101', name: '5g Desiccant bag (防潮珠） ')
-Product.create(category: Category.first, code: 'M400_KBDA-Druckbogen-V30', name: '98*98mm说明书- 封面180克双胶纸，内页90克均为双胶纸，中间两个钉')
+
 Product.create(category: Category.first, code: 'MD0101000101', name: 'ABS LG 171')
 Product.create(category: Category.first, code: 'MD0101100101', name: 'ABS LG 558')
 Product.create(category: Category.first, code: 'MD0101000201', name: 'ABS ROTEC 1430 10210')
 Product.create(category: Category.first, code: 'MD0101100201', name: 'ABS ROTEC 1430 W1446')
 Product.create(category: Category.first, code: 'BMZ-15665', name: 'Battery connector (Entladestecker)')
 Product.create(category: Category.first, code: 'M0043469.1501', name: 'Buchsen Kpl')
-Product.create(category: Category.first, code: 'Raw cable sampling cost(Used for 190307811.A1)', name: '"By FLAT CABLE:  NOUL24AWG*2P（white，black）TS11/0.16 PVC insulation  ID: 1.1+/-0.1,  OD:  2.5 X 3.5mm     PVC 60P black jacket Weather&Ozone and UV resistant(特殊户外PVC),耐寒-30℃~80℃"')
+
 Product.create(category: Category.first, code: 'MT0010022', name: 'CNC加工 20mm axle')
 Product.create(category: Category.first, code: 'MT0010023', name: 'CNC加工 Base-plate')
 Product.create(category: Category.first, code: 'MT0010011', name: 'CNC加工 Buchsen_tray_380*300/POM')
@@ -93,7 +94,7 @@ Product.create(category: Category.first, code: 'M00411BOBLAM-1-Gr', name: 'Lamin
 Product.create(category: Category.first, code: 'MD0180100301', name: 'MB PA66+GF30 grey')
 Product.create(category: Category.first, code: 'MD0607000101', name: 'Motor bubble packing bag(PE气泡袋）22.5*18mm*厚14.5C')
 Product.create(category: Category.first, code: 'MD0700300203', name: 'NO-UL 0.5mm²(21/0.18BC+1000D*2F PVC OD:2.0*4.0mm')
-Product.create(category: Category.first, code: 'Raw cable sampling cost(Used for 190307838.A1)', name: '"NOUL 26AWGX5C（Red,black, white,blue,green）+F+ PP insulation  ID:0.9+/-0.1,     OD:3.7+/-0.15mm     PVC 60P black  jacket   Weather&Ozone and UV resistant(特殊户外PVC),耐寒-30℃~80℃"')
+
 Product.create(category: Category.first, code: 'MI0104000101', name: 'Octave light R1 405nm 70um')
 Product.create(category: Category.first, code: 'MD0103100001', name: 'PA66+GF30 Albis A2030/109')
 Product.create(category: Category.first, code: 'MD0105100101', name: 'PBT+GF20 420SE0 SABIC black 胶料')
@@ -108,7 +109,7 @@ Product.create(category: Category.first, code: 'MD0605000101', name: 'Plastic Bo
 Product.create(category: Category.first, code: 'MD0605000301', name: 'Plastic Box Euro 4633 400*600*H330(周转箱）')
 Product.create(category: Category.first, code: 'M0041206.00', name: 'Plastik Zahnrad 2')
 Product.create(category: Category.first, code: 'DM-T-R001', name: '"Robot paw 机器人爪，材料：7075-T6,硬质氧化（灰色）"')
-Product.create(category: Category.first, code: '1321 002 043-00m01', name: 'S-POLE')
+
 Product.create(category: Category.first, code: 'MD0580100101', name: 'Silicon Heebol HJ5626 有机硅胶')
 Product.create(category: Category.first, code: 'MD0580100201', name: 'Silicon Nanda 703 (g)南大硅胶')
 Product.create(category: Category.first, code: 'M8090604', name: 'Software Update Kabel')
@@ -189,7 +190,7 @@ Product.create(category: Category.first, code: 'MT0030004', name: '标签纸 E50
 Product.create(category: Category.first, code: 'MT0030002', name: '标签纸 Z-Uitimate 3000tc white/10mm*10mm耐高温')
 Product.create(category: Category.first, code: 'MT0030003', name: '标签纸 Z-Uitimate 3000tc white/20mm*20mm耐高温')
 Product.create(category: Category.first, code: 'MT0030001', name: '"标签纸 Z-Uitimate 3000tc标签/92.5mm*12mm,耐高温"')
-Product.create(category: Category.first, code: '513-404C-0.8-0.01mm', name: '水平型杠杆百分表 三丰 ')
+
 Product.create(category: Category.first, code: 'MI0103100101', name: '油墨SR灰色调油-德国玛莱宝')
 Product.create(category: Category.first, code: 'MD0800100101', name: '电池连接线1')
 Product.create(category: Category.first, code: 'MD0800100201', name: '电池连接线2')
