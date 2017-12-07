@@ -19,4 +19,9 @@
         = content_tag :div, :class => "alert #{name == :error ? 'alert-error' : 'alert-success' }" do
           %a.close{:href => '#', :data => {:dismiss => 'alert'} } ×
           = msg
+      %p
+        .pull-right
+          %a.btn.btn-default.navbar-btn{:href => "#{root_path}"}
+            %span.glyphicon.glyphicon-home
+            &nbsp;Home
       = yield

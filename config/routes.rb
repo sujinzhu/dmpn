@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password/index'
+
+  patch 'password/change'
+
   resources :users
   resources :products do
     collection do

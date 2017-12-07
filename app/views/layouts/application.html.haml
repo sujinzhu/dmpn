@@ -51,6 +51,15 @@
                 %li= link_to 'List', products_path
                 %li= link_to 'New one', new_product_path
                 %li= link_to 'New many', new_many_products_path
+            %li.dropdown
+              %a.dropdown-toggle{href: "#", data: {toggle: "dropdown"}, role: "button", aria: {haspopup: "true", expanded: "false"}}
+                System
+                %span.caret
+              %ul.dropdown-menu
+                - if current_user
+                  %li= link_to 'Change Password', password_index_path
+                  - if current_user.is_admin?
+                    %li= link_to 'Users', users_path
 
     .container
       - flash.each do |name, msg|

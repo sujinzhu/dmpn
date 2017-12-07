@@ -67,4 +67,3 @@ gem 'formtastic-bootstrap'
 
 gem 'authlogic'
 gem 'rolify'
-gem 'cancancan', '~> 2.0'

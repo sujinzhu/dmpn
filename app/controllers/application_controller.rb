@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
   # filter_parameter_logging :password, :password_confirmation
 
+  protected
+
+  def show_errors(exception)
+    @e = exception
+    respond_to do |format|
+      format.js { render 'errors/show' }
+      format.html { render 'errors/show' }
+    end
+  end
+
   private
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
