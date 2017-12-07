@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124021801) do
+ActiveRecord::Schema.define(version: 20171206061544) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", limit: 255
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20171124021801) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["code"], name: "index_products_on_code", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "crypted_password"
+    t.string "password_salt"
+    t.string "persistence_token"
+    t.string "single_access_token"
+    t.string "perishable_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

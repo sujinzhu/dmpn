@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :products do
     collection do
       get 'new_many'
@@ -15,6 +16,12 @@ Rails.application.routes.draw do
       get 'select'
     end
   end
+
+  resource :user_session
+
+  match 'login', to: 'user_sessions#new', via: :get
+  match 'logout', to: 'user_sessions#destroy', via: :get
+
   get 'home/index'
 
   root 'home#index'

@@ -64,3 +64,7 @@ gem 'jquery-rails'
 
 gem 'formtastic'
 gem 'formtastic-bootstrap'
+
+gem 'authlogic'
+gem 'rolify'
+gem 'cancancan', '~> 2.0'

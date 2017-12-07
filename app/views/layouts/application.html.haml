@@ -24,6 +24,16 @@
             %span.icon-bar
           %a.navbar-brand{:href => root_path}
             Dema Part Numbering
+
+        .btn-group.pull-right
+          %a.btn.btn-default.navbar-btn{:href => "#{root_path}"}
+            %span.glyphicon.glyphicon-home
+            &nbsp;Home
+          - if current_user
+            %a.btn.btn-default.navbar-btn{:href => "#{logout_path}"}
+              %span.glyphicon.glyphicon-log-out
+              &nbsp;Log out
+
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.dropdown
