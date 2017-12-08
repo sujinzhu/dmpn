@@ -36,6 +36,15 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def require_admin
+      unless current_user && current_user.is_admin?
+        store_location
+        flash[:notice] = "Only users in admin group can access this page!"
+        redirect_to root_url
+        return false
+      end
+    end
+
     def require_no_user
       if current_user
         store_location

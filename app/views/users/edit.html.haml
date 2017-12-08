@@ -1,7 +1,8 @@
-%h1 Editing user
+.page-header
+  .btn-group.pull-right
+    = link_to_index users_path
+    = link_to_show @user
+  %h1 Edit User
 
-= render 'form'
-
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path
+.col-md-6
+  = render 'form'

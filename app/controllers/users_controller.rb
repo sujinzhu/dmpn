@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user
+  before_action :require_admin
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        @user.add_role :admin if params.include?(:admin)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -43,6 +44,11 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        if params.include?(:admin)
+          @user.add_role :admin
+        else
+          @user.remove_role :admin
+        end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

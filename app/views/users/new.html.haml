@@ -1,5 +1,7 @@
-%h1 New user
+.page-header
+  .pull-right
+    = link_to_index users_path
+  %h1 New User
 
-= render 'form'
-
-= link_to 'Back', users_path
+.col-md-6
+  = render 'form'

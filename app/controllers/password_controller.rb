@@ -1,12 +1,12 @@
 class PasswordController < ApplicationController
+  before_action :require_user
   layout 'signin'
+
   def index
-    authorize! :change, :password
     @user = current_user
   end
 
   def change
-    authorize! :change, :password
     @user = current_user
     # @user.password = params[:user][:password]
     # @user.password_confirmation = params[:user][:password_confirmation]

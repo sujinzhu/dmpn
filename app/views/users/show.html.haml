@@ -1,15 +1,12 @@
-%p#notice= notice
+.page-header
+  .btn-group.pull-right
+    = link_to_edit edit_user_path(@user)
+    = link_to_index users_path
+    = link_to_new new_user_path
+  %h1 User
 
 %p
   %b Email:
   = @user.email
-%p
-  %b Crypted password:
-  = @user.crypted_password
-%p
-  %b Password salt:
-  = @user.password_salt
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+- if @user.is_admin?
+  %p [ Is Admin ]
