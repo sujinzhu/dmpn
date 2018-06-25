@@ -41,6 +41,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
+    @product.code += @product.standard unless @product.code[-1] == @product.standard
+
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -56,9 +58,10 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:category_id])
     @product_names = params[:names].delete_if {|i, value| value.blank?}.values
     @batch = params[:batch]
-    @length = params.fetch(:length, 12)
+    @length = params.fetch(:length, 14)
+    @standard = params.fetch(:standard, 'N')
 
-    if (@products = Product.create_many @category, @product_names, @batch, @length)
+    if (@products = Product.create_many @category, @product_names, @batch, @length, @standard)
       render :create_many
     else
       render :new_many
@@ -97,6 +100,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:category_id, :name, :code, :batch)
+      params.require(:product).permit(:category_id, :name, :code, :batch, :standard)
     end
 end

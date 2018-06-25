@@ -14,6 +14,10 @@
     .col-sm-10
       = text_field_tag :batch, @batch, class: 'form-control'
   .form-group
+    = label_tag :standard, 'Standard', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = select_tag :standard, options_for_select([["None", "N"], ["RoHS", "R"], ["ROHS PAHs", "P"]])
+  .form-group
     = label_tag 'names[0]', 'Name', class: 'col-sm-2 control-label'
     .col-sm-5
       = text_field_tag 'names[0]', nil, class: 'form-control'

@@ -15,6 +15,7 @@
     = f.input :code
     = f.input :name
     = f.input :batch
+    = f.input :standard, as: :radio, collection: {"None" => "N", "RoHS" => "R", "ROHS PAHs" => "P"}
 
   = f.actions do
     = f.action :submit, :as => :input, :wrapper_html => { :class => 'btn-default'}

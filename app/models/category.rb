@@ -27,8 +27,8 @@ class Category < ApplicationRecord
     name
   end
 
-  def next_id(leng)
-    _id = (prefix + '%0' + (leng - prefix.length - 2).to_s + 'd01') % next_number
+  def next_id(leng, standard)
+    _id = (prefix + '%0' + (leng - prefix.length - 2).to_s + 'd' + standard) % next_number
     update(next_number: next_number + 1)
     _id
   end

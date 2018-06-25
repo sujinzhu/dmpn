@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207023955) do
+ActiveRecord::Schema.define(version: 20180625002515) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", limit: 255
-    t.string "place_holder", limit: 5
+    t.string "place_holder", limit: 14
     t.boolean "is_view", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20171207023955) do
     t.string "batch"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "standard", limit: 1, default: "N"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["code"], name: "index_products_on_code", unique: true
   end
