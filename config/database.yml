@@ -22,7 +22,7 @@ test:
 
 production:
   adapter: postgresql
-  host: localhost
+  host: db
   username: dmpn
   password: dmpn
   database: dmpn
