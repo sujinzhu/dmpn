@@ -16,20 +16,22 @@ ADD gzip_max.conf /etc/nginx/conf.d/gzip_max.conf
 ADD 00_app_env.conf /etc/nginx/conf.d/00_app_env.conf
 
 RUN mkdir /home/app/webapp
+COPY --chown=app:app . /home/app/webapp
 WORKDIR /home/app/webapp
 
-ADD Gemfile /home/app/webapp/Gemfile
-ADD Gemfile.lock /home/app/webapp/Gemfile.lock
+# ADD Gemfile /home/app/webapp/Gemfile
+# ADD Gemfile.lock /home/app/webapp/Gemfile.lock
 
-RUN gem install bundler
+# RUN gem install bundler
 
-RUN cd /home/app/webapp && bundle install
+RUN && bundle install
 
-ADD . /home/app/webapp
-
-RUN touch /home/app/webapp/log/production.log && chmod 0666 /home/app/webapp/log/production.log
+# ADD . /home/app/webapp
 
 RUN cd /home/app/webapp && RAILS_ENV=production bin/rake assets:precompile
+
+RUN touch /home/app/webapp/log/production.log && chmod 0666 /home/app/webapp/log/production.log
+RUN chmod 777 -R /home/app/webapp/tmp
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
