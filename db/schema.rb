@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625002515) do
+ActiveRecord::Schema.define(version: 20180807052809) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", limit: 255
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180625002515) do
 
   create_table "products", force: :cascade do |t|
     t.integer "category_id"
-    t.string "code", limit: 20, null: false
+    t.string "code", limit: 100, null: false
     t.string "name", null: false
     t.string "batch"
     t.datetime "created_at", null: false
