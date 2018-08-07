@@ -24,7 +24,7 @@ WORKDIR /home/app/webapp
 
 # RUN gem install bundler
 
-RUN && bundle install
+RUN bundle install
 
 # ADD . /home/app/webapp
 
